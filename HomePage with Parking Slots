@@ -1,0 +1,24 @@
+from tkinter import *
+
+root = Tk()
+root.title("Parking Slots")
+
+frame = Frame(root)
+frame.pack(padx=10, pady=10)
+
+Label(frame, text="Refresh Slot").grid(row=0, column=0, columnspan=3)
+
+slots = [
+    {"slot": "Slot 1", "status": "Occupied"},
+    {"slot": "Slot 2", "status": "Free"},
+    {"slot": "Slot 3", "status": "Occupied"},
+    {"slot": "Slot 4", "status": "Occupied"},
+    {"slot": "Slot 5", "status": "Occupied"},
+    {"slot": "Slot 6", "status": "Occupied"},
+]
+
+for idx, slot in enumerate(slots):
+    color = "green" if slot["status"] == "Free" else "red"
+    Button(frame, text=f"{slot['slot']}\n{idx+1}", bg=color, fg="white", width=12, height=3).grid(row=idx//3 + 1, column=idx%3, padx=5, pady=5)
+
+root.mainloop()
