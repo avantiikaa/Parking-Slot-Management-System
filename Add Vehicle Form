@@ -1,0 +1,36 @@
+from tkinter import *
+from tkinter import messagebox
+
+def add_vehicle():
+    name = entry_name.get()
+    mobile = entry_mobile.get()
+    vehicle_no = entry_vehicle_no.get()
+    vehicle_type = vehicle_type_var.get()
+    # Normally you save to database here
+    messagebox.showinfo("Added", "Added Successfully")
+
+root = Tk()
+root.title("Add Vehicle")
+root.geometry("400x300")
+
+Label(root, text="Name :").grid(row=0, column=0, sticky='w')
+entry_name = Entry(root)
+entry_name.grid(row=0, column=1)
+
+Label(root, text="Mobile :").grid(row=1, column=0, sticky='w')
+entry_mobile = Entry(root)
+entry_mobile.grid(row=1, column=1)
+
+Label(root, text="Vehicle No :").grid(row=2, column=0, sticky='w')
+entry_vehicle_no = Entry(root)
+entry_vehicle_no.grid(row=2, column=1)
+
+Label(root, text="Vehicle Type :").grid(row=3, column=0, sticky='w')
+vehicle_type_var = StringVar()
+vehicle_type = OptionMenu(root, vehicle_type_var, "2 Wheeler", "4 Wheeler")
+vehicle_type.grid(row=3, column=1)
+vehicle_type_var.set("2 Wheeler")
+
+Button(root, text="Add Vehicle", bg="green", fg="white", command=add_vehicle).grid(row=4, column=0, columnspan=2, pady=10)
+
+root.mainloop()
