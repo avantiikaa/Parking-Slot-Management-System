@@ -1,0 +1,24 @@
+from tkinter import *
+from tkinter import ttk
+
+root = Tk()
+root.title("Parking History")
+
+columns = ("id", "name", "vehicle_no", "mobile", "vehicle_type", "entry_time")
+
+tree = ttk.Treeview(root, columns=columns, show="headings")
+tree.pack(fill=BOTH, expand=True)
+
+for col in columns:
+    tree.heading(col, text=col.capitalize())
+
+# Sample data
+data = [
+    (1, "Pallavi More", "mh09si876", "8698888100", "4", "2023-04-19 18:04:18"),
+    (2, "Pallavi More", "mh09si876", "8698888100", "4", "2023-04-19 18:05:01"),
+]
+
+for row in data:
+    tree.insert("", END, values=row)
+
+root.mainloop()
