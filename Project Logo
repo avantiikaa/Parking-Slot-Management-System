@@ -1,0 +1,21 @@
+from tkinter import *
+from PIL import ImageTk, Image
+
+root = Tk()
+root.title("Parking Management System")
+
+# Load the image
+img = Image.open("logo.png")  # Save your image as logo.png
+img = img.resize((300, 150))
+logo = ImageTk.PhotoImage(img)
+
+# Display the image
+label = Label(root, image=logo)
+label.pack()
+
+root.mainloop()
+
+
+ Make sure you install Pillow:
+
+pip install pillow
